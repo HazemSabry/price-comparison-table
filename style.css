@@ -16,14 +16,14 @@ body {
 }
 
 .price-cards-container {
-  width: 80%;
+  width: fit-content;
   display: grid;
-  grid-template-columns: repeat(minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 320px);
 }
 
 .price-card-container {
   width: 250px;
-  height: calc(100vh - 300px - 2rem);
+  height: calc(100vh - 300px);
   background-color: white;
   color: black;
   display: flex;
@@ -60,13 +60,13 @@ body {
 
 .price-card-container > hr {
   width: 100%;
-  border: 1px solid rgb(235, 233, 233);
+  border: 1px solid rgba(179, 178, 178, 0.2);
 }
 
 .card-list-of-content {
   list-style: url(./assets/check-circle.svg);
-  line-height: 200%;
-  font-size: 18px;
+  line-height: 250%;
+  font-size: 14px;
 }
 
 .card-list-of-content > li > s {
@@ -79,4 +79,39 @@ body {
   border: none;
   background-color: #641bff;
   color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.price-card-container.professional {
+  background-color: #641bff;
+  color: white;
+  border-radius: 10px;
+  transform: scale(1.1);
+  gap: calc(2rem * 0.9);
+  font-size: calc(14px * 0.9);
+}
+
+.price-card-container.professional::before {
+  content: "Popular";
+  background-color: rgb(243, 228, 184);
+  border: 1px solid rgb(183, 137, 0);
+  color: rgb(171, 128, 0);
+  padding: 0.2rem 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.price-card-container > button.professional {
+  background-color: white;
+  color: #641bff;
+}
+
+@media (width < 900px) {
+  .price-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
 }
